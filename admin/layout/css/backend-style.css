@@ -1,0 +1,260 @@
+/* COLORS USED */
+/* body color #dfe6e9 */
+/* hover color #81ecec */
+/* option one #0dcaf0*/
+/* option two #00b894 */
+/* option three #fdcb6e */
+/* option four #fdcb6e */
+
+
+/* Gernral  */
+hr {
+  margin: 0;
+}
+/* my classes */
+.padding {padding: 10px 0;}
+.background-color {background-color: #81ecec}
+.mycolor1{color: #00b894}
+
+/* start main rulez */
+body{
+  background-color: #dfe6e9;
+  font-size: 16px;
+}
+
+
+
+/*  login form */
+.login h4{
+  color: #888;
+}
+.login {
+  width:300px;
+  margin: 100px auto;
+}
+.btn-block{
+  width:300px;
+  margin:1px auto;
+}
+.login input{
+  margin_bottom: 10px;
+}
+
+.login .form-contro l{
+  background-color: #fefefe;
+}
+/* navbar */
+.navbar {
+  border-radius: 0;
+  margin-bottom: 0;
+}
+.nav-link {
+  color:white;
+}
+.nav-link:hover{
+  color:#dfe6e9;
+}
+.nav-link#navbarDropdown{
+  border: 2px solid white;
+  padding: 10px;
+}
+
+/* mmbers section */
+.pass-relative {
+  position: relative;
+}
+#showPass {
+  position: absolute;
+  top: 0px;
+  right: -584px;
+}
+.Active , .Deactivate {
+  margin-left:5px;
+}
+
+
+/* Dashbored page */
+h1 {
+  color: #494949;
+  padding: 20px;
+}
+.home-stats .stat {
+  background-color:  #0dcaf0;
+  color: black;
+  border: 1px solid #ccc;
+  padding-top: 20px;
+  padding-bottom:20px;
+  border-radius: 2%;
+  font-size: 18px;
+  transition: 0.5s ease-in-out;
+}
+.home-stats .stat:hover {
+  background: #fdcb6e;
+}
+.home-stats .stat a {
+  color: black;
+  text-decoration: none;
+}
+.home-stats .stat span {
+  display: block;
+  font-size: 50px;
+}
+.latest {
+  margin-top: 30px;
+}
+.panel-heading {
+  background-color: #212529;
+  color: white;
+  padding: 5px 0;
+}
+.panel-body{
+  background-color: white;
+}
+/* Latest Users */
+.latest-users{
+  margin-bottom: 0;
+}
+.toggle-info{
+  color: #dfe6e9;
+  float: right;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+
+.latest-users li{
+  padding: 5px 0 5px 10px;
+  overflow: hidden;
+  background-color: #fdcb6e;
+  color: black;
+}
+.latest-users li:nth-child(even){
+ background-color: #fbd998;
+}
+.comment-box{
+padding: 10px 0;
+text-align: center;
+
+}
+.comment-box .member-n {
+padding: 30px 0;
+font-weight: bold;
+}
+.comment-box .member-c{
+  padding: 0px 0;
+}
+/* End of dashbored */
+
+/* latest items */
+.latest-items{
+  margin-bottom: 0;
+}
+.latest-items li{
+  padding: 5px 0 5px 10px;
+  overflow: hidden;
+  background-color: #fdcb6e;
+  color: black;
+}
+.latest-items li:nth-child(even){
+ background-color: #fbd998;
+}
+
+
+/* manage members */
+h3 {
+  padding: 10px 0;
+}
+.table-bordered {
+  border-color: black;
+  margin-top: 10px;
+}
+
+.main-table tr:first-child td {
+    background-color: #212529;
+    color: #eee;
+}
+.main-table td {
+background-color: white;
+vertical-align:middle;
+}
+.main-table .btn {
+  padding: 3px 10px;
+}
+/* Categories page */
+.Main-Category h3{
+  margin: 30px 0 0 ;
+}
+.ordering {
+  background-color: white;
+  padding: 10px 0;
+}
+.ordering a {
+  text-decoration: none;
+  color: black;
+}
+.ordering .active {
+  color:#f27878;
+  font-weight: bold;
+}
+.cate {
+  padding-top: 15px;
+  padding-bottom:16px;
+  padding-left: 20px;
+  padding-right: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.cate:hover {
+  background-color: #eee;
+}
+.cate:hover .hidden-buttons{
+  right: 10px;
+}
+.cate h3 {
+  padding: 5px 0px;
+}
+.cate .Visibility {
+  background-color: #cdd4d5;
+  color: #00000073;
+  padding: 5px 10px;
+  margin-right: 5px;
+}
+.cate .Comment {
+  background-color: #212529;
+  color: white;
+  padding: 5px 10px;
+  margin-right: 5px;
+}
+.cate .ads {
+  background-color: #f27878;
+  color: white;
+  padding: 5px 10px;
+  margin-right: 5px;
+}
+.cate .hidden-buttons {
+  -webkit-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  position: absolute;
+  top: 15px;
+  right: -160px;
+}
+.cate .hidden-buttons a{
+  margin-right: 5px;
+}
+.add-Category{
+  margin-top: 10px;
+  margin-bottom:  30px;
+  font-weight: bold;
+}
+
+/* footer */
+.footer {
+  margin-top: 100px;
+}
+/* test */
+.custom-width {
+  width: 60%;
+}
+/* test */

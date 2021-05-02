@@ -1,0 +1,239 @@
+/* Colors */
+/* 0 #9f4347 */
+/* 1 #fab1a0 */
+/* 2 #ff7675 */
+/* 3 #00b894 */
+/* 4 #55efc4 */
+/* 5 #fd79a8 */
+/* 6 #2d3436 */
+/* Buttons #0d6efd */
+body {
+ background-color: #fab1a0;
+ font-family: 'Montserrat', sans-serif;
+}
+
+/* Genral classes */
+.padding {
+  padding: 10px 0;
+}
+
+/* Trasntion
+transition: 1s ease-in-out;
+-o-transition: 1s ease-in-out;
+-webkit-transition: 1s ease-in-out;
+-moz-transition: 1s ease-in-out;
+*/
+hr {
+  opacity: 1;
+}
+a {
+  text-decoration: none;
+}
+.control-label {
+  color: black;
+  font-size:15px;
+  margin-top:15px;
+}
+h3 a {
+  color: #bb2d3e;
+}
+
+/* INDEX (home page) */
+  .index-wallpaper  {
+    min-height: 100%;
+    min-width: 100%;
+    position: relative;
+  }
+.layout {
+  position: absolute;
+  top: 30%;
+  left: 0%;
+  font-size: 20px;
+  padding: 5% 10%;
+  border-radius: 10px;
+  background-image: url(../images/img1.jpg);
+
+}
+.layout h1 , .layout p {
+  color: white;
+  font-weight: bold;
+}
+/* start header */
+.upper-bar {
+  color: white;
+  background-color: #2d3436;
+  padding-bottom: 37px;
+  font-family: 'Mukta', sans-serif;
+  text-align: right;
+  position: relative;
+}
+.welcome-user{
+  font-size:20px;
+  margin: 0 5px;
+}
+#profile  {
+  color: #fab1a0;
+  margin: 0 5px;
+}
+.designed-by {
+  float: left;
+}
+.designed-by a {
+  margin-left: 10px;
+}
+.upper-bar a{
+  float: right;
+}
+.upper-bar .login{
+  color: white;
+  text-transform: lowercase;
+}
+
+nav a , nav li a{
+  -moz-transition: .4s ease-in-out;
+  -o-transition: .4s ease-in-out;
+  -webkit-transition: .4s ease-in-out;
+  transition: .4s ease-in-out;
+
+}
+nav a:hover {color: #55efc4;
+
+}
+
+/* start login page */
+.login-page .margin-top {
+  margin-top:70px;
+}
+.login-page h1{
+  padding: 40px 0;
+  color:  #2d343669;
+  font-size: 50px;
+}
+.login-page h1 span {
+  cursor: pointer;
+}
+
+.login-page .selected{
+  color: #9f4347;
+}
+
+.login-page form {
+  max-width: 300px;
+  margin:auto;
+}
+
+.login-page input {
+  margin-bottom: 30px!important;
+
+}
+
+.login-page button {
+  background-color: #9f4347;
+  border: 0;
+  width: 300px;
+
+}
+.login-page button:hover {
+  background-color: #55efc4;
+  Color:black;
+}
+.login-page .signup {
+  display: none;
+}
+.the-errors{
+  color: black;
+}
+/* end login page */
+/* Profile page */
+
+.card {
+  padding: 0;
+
+}
+.main {
+  background-color: #2d3436;
+  font-size: 24px;
+  color: white;
+}
+/*  categories Page */
+h1 {
+  padding: 40px 0;
+  color:  #2d343669;
+  font-size: 50px;
+}
+.thumbnail {
+  background-color: #2d3436;
+  color: white;
+  padding: 1%;
+  text-align: center;
+  overflow: hidden;
+  height:100%;
+  position: relative;
+}
+.thumbnail-profile {
+  padding: 1%;
+  overflow: hidden;
+  height:100%;
+  position: relative;
+}
+
+.thumbnail-profile .date {
+  text-align: right;
+  font-size: 13px;
+  font-weight: bold;
+}
+.user-info {
+  font-weight:bold;
+  padding: 10px;
+  line-height: 3;
+  background-color: #2d3436b8;
+  color: white;
+  border-radius: 4px;
+}
+
+.user-info2{
+  margin-left:10px;
+}
+.price-tag {
+  position: absolute;
+  padding: 10px;
+  background-color:  #bb2d3e ;
+  color:white;
+  font-weight: bold;
+  border-bottom-right-radius: 10%;
+  left:0;
+  top:0;
+}
+.price-tag-profile {
+  position: absolute;
+  padding: 10px;
+  background-color: #f96f6f;
+  color:white;
+  font-weight: bold;
+  border-bottom-right-radius: 10%;
+  left:0;
+  top:0;
+}
+.item-name {
+  padding: 10px 0;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  }
+.list-group-flush>.list-group-item:last-child {
+  margin-top: 10px;
+}
+.comment{
+  padding: 1%;
+  color: black;
+  font-weight: bold;
+  }
+/* items page */
+.items-info {
+  background-color:#2d3436;
+  padding: 1%;
+  color: white;
+  border-radius: 5px;
+}
+.items-info h4 {
+  font-weight: bold;
+}
