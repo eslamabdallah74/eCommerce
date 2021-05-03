@@ -29,3 +29,66 @@ function checkUserStatus($user) {
   $status = $stmtx->rowCount();
   return $status;
 }
+function time_elapsed_string($datetime, $full = false) {
+  $now = new DateTime;
+  $ago = new DateTime($datetime);
+  $diff = $now->diff($ago);
+
+  $diff->w = floor($diff->d / 7);
+  $diff->d -= $diff->w * 7;
+
+  $string = array(
+      'y' => 'year',
+      'm' => 'month',
+      'w' => 'week',
+      'd' => 'day',
+      'h' => 'hour',
+      'i' => 'minute',
+      's' => 'second',
+  );
+  foreach ($string as $k => &$v) {
+      if ($diff->$k) {
+          $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+      } else {
+          unset($string[$k]);
+      }
+  }
+
+  if (!$full) $string = array_slice($string, 0, 1);
+  return $string ? implode(', ', $string) . ' ago' : 'just now';
+}
+function NoStars($stars = 0){
+  if($stars==1){
+    return '<span class="review">
+              <i class="fa fa-star"></i>
+          </span>';
+  }elseif($stars==2){
+    return '<span class="review">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+          </span>';
+  }elseif($stars==3){
+    return '<span class="review">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+          </span>';
+  }elseif($stars==4){
+    return '<span class="review">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+          </span>';
+  }elseif($stars==5){
+    return '<span class="review">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+          </span>';
+  }else{
+    return '';
+  }
+}

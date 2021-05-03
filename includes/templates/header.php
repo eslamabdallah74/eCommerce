@@ -7,37 +7,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="layout/css/bootstrap.min.css">
     <script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js"data-auto-a11y="true"></script>
-    <link rel="stylesheet" href="layout\css\backend-style.css">
+    <link rel="stylesheet" href="layout/css/backend-style.css">
   </head>
   <body>
 
-<div class="upper-bar">
-  <div class="container">
-    <!-- <div class="designed-by"> Designed By
-      <a class="#" href="https://www.facebook.com/profile.php?id=100021391685332" target="_blank"> Eslam Abdallah </a>
-    </div> -->
-    <?php
-    if (isset($_SESSION['user'])) {
 
-      echo "<span class='welcome-user'>" . $_SESSION['user'] . "</span>";
-      echo "<a href='logout.php' id='profile'> logout </a>";
-      echo "<a href='newitem.php' id='profile'> New item </a>";
-      echo "<a href='profile.php' id='profile'> Profile </a>";
-
-
-
-      // $userStatus = checkUserStatus($_SESSION['user']);
-      // if ($userStatus == 1) {
-      //   // user is not actived
-      // }
-    } else {
-     ?>
-    <a href="login.php" class="btn btn-danger">
-      <span class="login">Login / Signup</span>
-    </a>
-  <?php } ?>
-  </div>
-</div>
 
 <!-- Start navbar -->
 <nav class=''>
@@ -51,11 +25,24 @@
 
         <?php
           foreach (getcate() as $cats )
-           {echo '<li>
+           {echo '<li class="main-links">
                   <a href="categories.php?pageid=' . $cats['ID'] .'">
                   ' . $cats['Name'] . '
                   </a></li>' ;}
          ?>
+         <li>
+          <div class="btn-group">
+              <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-user"></i>
+              </button>
+              <div class="dropdown-menu dropdown-menu-right">
+                <button class="dropdown-item" type="button">Hello , <?php echo $_SESSION['user'] ?>. </button>
+                <button class="dropdown-item" type="button"><a href="profile.php">Profile</a></button>
+                <button class="dropdown-item" type="button"><a href="newitem.php">Add new item</a></button>
+                <button class="dropdown-item" type="button"><a href="logout.php">Logout</a></button>
+              </div>
+          </div>
+         </li>
       </ul>
     </div>
   </div>

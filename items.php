@@ -5,6 +5,7 @@ include "init.php"; // import files
 $itemid = isset($_GET['itemid']) && is_numeric($_GET['itemid']) ? intval($_GET['itemid']) : 0;
 // select all data depend  on the ID
 $stmt = $con->prepare('SELECT items.* ,
+                        users.userID,
                        users.username,
                        categories.Name
                        FROM items
@@ -99,7 +100,7 @@ $row = $stmt->fetch()
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           $comment = filter_var($_POST['comment'], FILTER_SANITIZE_STRING);
           $itemid  = $row['item_id'];
-          $userid  = $row['username'];
+          $userid  = $row['userID'];
           if (! empty($comment)) {
             $stmt = $con->prepare("INSERT INTO
                                     comments(comment, status ,comment_date ,item_id ,user_id)
