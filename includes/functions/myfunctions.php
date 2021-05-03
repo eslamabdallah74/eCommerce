@@ -29,21 +29,66 @@ function checkUserStatus($user) {
   $status = $stmtx->rowCount();
   return $status;
 }
-//redirct function v2.0
-function redirctHome($theMsg ,$url = null ,$seconds = 2) {
-  if ($url === null) {
-    $url = 'index.php';
+function time_elapsed_string($datetime, $full = false) {
+  $now = new DateTime;
+  $ago = new DateTime($datetime);
+  $diff = $now->diff($ago);
 
-  } else {
+  $diff->w = floor($diff->d / 7);
+  $diff->d -= $diff->w * 7;
 
-    if(isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] !== '') {
-      $url = $_SERVER['HTTP_REFERER'];
-    } else {
-      $url = "index.php";
-    }
+  $string = array(
+      'y' => 'year',
+      'm' => 'month',
+      'w' => 'week',
+      'd' => 'day',
+      'h' => 'hour',
+      'i' => 'minute',
+      's' => 'second',
+  );
+  foreach ($string as $k => &$v) {
+      if ($diff->$k) {
+          $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+      } else {
+          unset($string[$k]);
+      }
   }
-  echo  $theMsg;
-  echo "<div class='alert alert-info text-center'> You will be redircted .... </div> ";
-  header("refresh:$seconds;url=$url");
-  exit();
+
+  if (!$full) $string = array_slice($string, 0, 1);
+  return $string ? implode(', ', $string) . ' ago' : 'just now';
+}
+function NoStars($stars = 0){
+  if($stars==1){
+    return '<span class="review">
+              <i class="fa fa-star"></i>
+          </span>';
+  }elseif($stars==2){
+    return '<span class="review">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+          </span>';
+  }elseif($stars==3){
+    return '<span class="review">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+          </span>';
+  }elseif($stars==4){
+    return '<span class="review">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+          </span>';
+  }elseif($stars==5){
+    return '<span class="review">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+          </span>';
+  }else{
+    return '';
+  }
 }
