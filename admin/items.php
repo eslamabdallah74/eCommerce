@@ -233,7 +233,7 @@ if (isset($_SESSION['username'])) {
       // select all data depend  on the ID
       $stmt = $con->prepare('SELECT * FROM items WHERE item_id = ?');
       $stmt->execute(array($itemid));
-      $row = $stmt->fetch()
+      $row = $stmt->fetch();
       $rowCount = $stmt->rowCount();
       if ($stmt->rowCount() > 0) { ?>
 

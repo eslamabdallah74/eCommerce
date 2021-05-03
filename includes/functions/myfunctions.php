@@ -29,3 +29,21 @@ function checkUserStatus($user) {
   $status = $stmtx->rowCount();
   return $status;
 }
+//redirct function v2.0
+function redirctHome($theMsg ,$url = null ,$seconds = 2) {
+  if ($url === null) {
+    $url = 'index.php';
+
+  } else {
+
+    if(isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] !== '') {
+      $url = $_SERVER['HTTP_REFERER'];
+    } else {
+      $url = "index.php";
+    }
+  }
+  echo  $theMsg;
+  echo "<div class='alert alert-info text-center'> You will be redircted .... </div> ";
+  header("refresh:$seconds;url=$url");
+  exit();
+}

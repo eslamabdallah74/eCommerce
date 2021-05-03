@@ -17,7 +17,7 @@
       <a class="#" href="https://www.facebook.com/profile.php?id=100021391685332" target="_blank"> Eslam Abdallah </a>
     </div> -->
     <?php
-    if (isset($_SESSION['user'])) {
+    if (isset($_SESSION['user'])) { 
 
       echo "<span class='welcome-user'>" . $_SESSION['user'] . "</span>";
       echo "<a href='logout.php' id='profile'> logout </a>";

@@ -64,7 +64,7 @@
                        <div class="form-group row padding">
                         <label class="col-sm-2 control-label">Price</label>
                          <div class="col-sm-10 col-md-9">
-                           <input data-class='.live-price' type="number" name="price" class="form-control live" autocomplete="off" required='required' placeholder="Price">
+                           <input data-class='.live-price' type="text" name="price" class="form-control live" autocomplete="off" required='required' placeholder="Price">
                          </div>
                       </div>
                       <!-- country made filed -->
@@ -93,7 +93,7 @@
                            <select name="Category"  class="form-select" aria-label="Default select example">
                              <option value="0">Open this to select Category</option>
                              <?php
-                             $stmt2 = $con->prepare("SELECT * FROM Categories");
+                             $stmt2 = $con->prepare("SELECT * FROM categories");
                              $stmt2->execute();
                              $Categories = $stmt2->fetchAll();
                              foreach ($Categories as $Category) {
@@ -108,7 +108,7 @@
               <div class="form-group row">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-6 padding">
-                <input type="submit" value="Add Item"= class="btn btn-info">
+                <input onclick="window.location.href = 'index.php';" type="submit" value="Add Item"= class="btn btn-info">
                 </div>
               </div>
                  </form>

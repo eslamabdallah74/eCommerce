@@ -19,7 +19,7 @@
           <a class="nav-link" href="members.php?action=manage">Members</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="Comments.php">Comments</a>
+          <a class="nav-link" href="comments.php">Comments</a>
         </li>
 
       </ul>

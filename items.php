@@ -6,7 +6,8 @@ $itemid = isset($_GET['itemid']) && is_numeric($_GET['itemid']) ? intval($_GET['
 // select all data depend  on the ID
 $stmt = $con->prepare('SELECT items.* ,
                        users.username,
-                       categories.Name
+                       categories.Name,
+                       users.userID
                        FROM items
                        INNER JOIN users ON users.userID = items.member_ID
                        INNER JOIN categories ON categories.ID = items.cate_ID
@@ -92,14 +93,14 @@ $row = $stmt->fetch()
       <div class="col-md-3">
         <h4>Add comment</h4>
         <form class="" action="<?php echo $_SERVER['PHP_SELF'] . '?itemid=' . $row['item_id'] ?>" method="post">
-          <textarea name="comment" rows="8" cols="80"></textarea>
+          <textarea class="comment-section" name="comment" rows="18" cols="180"></textarea>
           <input class="btn btn-danger"type="submit" name="" value="add">
         </form>
         <?php
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           $comment = filter_var($_POST['comment'], FILTER_SANITIZE_STRING);
           $itemid  = $row['item_id'];
-          $userid  = $row['username'];
+          $userid  = $row['userID'];
           if (! empty($comment)) {
             $stmt = $con->prepare("INSERT INTO
                                     comments(comment, status ,comment_date ,item_id ,user_id)
@@ -110,9 +111,7 @@ $row = $stmt->fetch()
               'zuserid' => $userid
             ));
             // comment added
-            if ($stmt) {
-              echo "<div class='alert alert-danger'Added</div>";
-            }
+
           }
         }
          ?>
@@ -125,13 +124,38 @@ $row = $stmt->fetch()
         } ?>
     <div class="container">
       <hr>
-    <div class="row">
-      <div class="col-md-3">
-        User Image
-      </div>
-      <div class="col-md-9">
-        User comment
-      </div>
+      <?php
+
+      $stmt = $con->prepare("SELECT
+                               comments.* ,users.username AS Member
+                             FROM
+                               comments
+                             INNER JOIN
+                               users
+                             ON
+                               users.userID = comments.user_id
+                             WHERE
+                                item_id = ?
+                             ORDER BY
+                                c_id DESC");
+
+      $stmt->execute(array($row['item_id']));
+      // assign to variables
+      $comments = $stmt->fetchAll();
+        ?>
+    <div class="row COMMENT">
+      <?php
+      foreach ($comments as $comment ) { ?>
+          <div class='col-md-3 added-comments-user'>
+            <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png" alt="">
+            <div class="comment-user-name">
+              <?php echo $comment['Member']; ?>
+            </div>
+           </div>
+          <div class='col-md-9 added-comments-comment'> <?php echo $comment['comment']; ?> </div>
+          <hr>
+
+    <?php } ?>
     </div>
   </div>
 </div>
