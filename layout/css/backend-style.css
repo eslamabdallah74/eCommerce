@@ -94,13 +94,14 @@ nav a , nav li a{
   -o-transition: .4s ease-in-out;
   -webkit-transition: .4s ease-in-out;
   transition: .4s ease-in-out;
-  color: #000000;
+  color: white;
 }
 nav #nav-mobile li.main-links a{
-  color: #ea474d!important;
+  color: white!important;
 }
 nav #nav-mobile li.main-links a:hover {
-  color: #ee6e73;
+  color: white;
+  background-color: #0b5ed7;
 }
 nav{
   background-color: #2d3436;
@@ -112,6 +113,7 @@ nav{
   height: 40px;
   line-height: 40px;
   padding: 0px 20px;
+  color: black;
 }
 .dropdown-menu a:hover{
   color: #000;
@@ -226,6 +228,7 @@ h1 {
   color: white;
   border-radius: 4px;
 }
+             
 
 .user-info2{
   margin-left:10px;
@@ -233,7 +236,7 @@ h1 {
 .price-tag {
   position: absolute;
   padding: 10px;
-  background-color:  #bb2d3e ;
+  background-color:  #0b5ed7 ;
   color:white;
   font-weight: bold;
   border-bottom-right-radius: 10%;
@@ -273,7 +276,6 @@ h1 {
 .items-info h4 {
   font-weight: bold;
 }
-<<<<<<< HEAD
 .comment-section {
   resize: none;
   height: 100px;
@@ -312,7 +314,6 @@ h1 {
   left: -35px;
   top: 0;
 }
-=======
 /* Main page  */
 .categories{
   margin: 50px auto;
@@ -341,4 +342,3 @@ h1 {
 .recent-items .review{
   color: #ffcc1b;
 }
->>>>>>> 34161305d1ebfeea641460ec6dec36717e0c4103
