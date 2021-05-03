@@ -74,7 +74,7 @@ if (isset($_POST['login'])) {
     <form class="login" action=" <?php echo $_SERVER['PHP_SELF'] ?>" method="post">
       <input class="form-control text-center" type="text" name="username" autocomplete="on" placeholder="Username" required="required">
       <input class="form-control text-center" type="password" name="passowrd" autocomplete="off" placeholder="Password" required="required">
-      <button name="login" type="submit" class="btn btn-primary btn-block">Login</button>
+      <button name="login" type="submit" class="btn btn-primary">Login</button>
     </form>
     <!-- start signup form -->
     <form class="signup" action=" <?php echo $_SERVER['PHP_SELF'] ?>"  method="post">
@@ -84,7 +84,7 @@ if (isset($_POST['login'])) {
       <input class="form-control text-center" type="password" name="password2" autocomplete="off" placeholder="Confirm Password" required="required">
       <input class="form-control text-center" type="email" name="email" autocomplete="off" placeholder="Email" required="required">
 
-      <button name="signup" type="sumbit" class="btn btn-primary">signup</button>
+      <button name="signup" type="sumbit" class="btn btn-success">signup</button>
     </form>
   </div>
   <div class="the-errors text-center padding">

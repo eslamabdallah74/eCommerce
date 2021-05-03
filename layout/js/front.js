@@ -11,13 +11,12 @@ $(function() {
 // swtich between login & sginup
 $(".login-page h1 span").click(function () {
  $(this).addClass("selected").siblings().removeClass("selected");
-
  $(".login-page form").hide();
-
-
- $("." + $(this).data("class")).fadeIn(200);
+ $("." + $(this).data("class")).show();
   })
 
+  
+  // add item live view
   $(".live").keyup(function (){
     $($(this).data('class')).text($(this).val());
   });

@@ -20,10 +20,25 @@ $info = $getUser->fetch();
       <ul class="list-group list-group-flush">
         <li class="list-group-item main">Information</li>
         <li class="list-group-item">
-        <span class="user-info"><i class="fas fa-lock"></i> Login name <br> </span> <span class="user-info2"><?php echo $info['username']; ?></span> <br>
-        <span class="user-info"><i class="fas fa-envelope"></i> Email <br> </span> <span class="user-info2"><?php echo $info['email']; ?></span> <br>
-        <span class="user-info"><i class="fas fa-user"></i> Fullname <br> </span> <span class="user-info2"> <?php echo $info['fullname']; ?> </span> <br>
-        <span class="user-info"><i class="fas fa-clock"></i> Date of registeration <br> </span> <span class="user-info2"><?php echo $info['Date']; ?></span>
+          <div class="row">
+
+          <div class="col-md-3">
+          <span class="user-info"><i class="fas fa-lock-open"></i> Login name <br> </span> 
+          </div>
+          <div class="col-md-3"><span class="user-info2"><?php echo $info['username']; ?></span></div>
+         <div class="col-md-3">
+          <span class="user-info"><i class="far fa-envelope"></i> Email <br> </span> 
+          </div>
+          <div class="col-md-3"><span class="user-info2"><?php echo $info['email']; ?></span></div>         <div class="col-md-3">
+          <span class="user-info"><i class="fas fa-user"></i> Fullname <br> </span> 
+          </div>
+          <div class="col-md-3"><span class="user-info2"><?php echo $info['fullname']; ?></span></div>         <div class="col-md-3">
+          <span class="user-info"><i class="far fa-clock"></i> registered date <br> </span> 
+          </div>
+          <div class="col-md-3"><span class="user-info2"><?php echo $info['Date']; ?></span></div>
+          </div>
+  
+
         </li>
       </ul>
     </div>
