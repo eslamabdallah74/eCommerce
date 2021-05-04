@@ -16,7 +16,7 @@
       //insert user info in database
             $stmt = $con->prepare('INSERT INTO
                                   items(name, description, price, country_made, status, add_date, member_ID ,Cate_ID)
-                                  VALUES(:zname, :zdesc, :zprice, :zcountry, :zstatus, now(), :zmember, :zcate) ');
+                                  VALUES(:zname, :zdesc, :zprice, :zcountry, :zstatus, now(), :zmember, :zcate  ) ');
             $stmt->execute(array(
               'zname'     => $name,
               'zdesc'     => $desc,
@@ -49,28 +49,28 @@
                      <div class="form-group row padding">
                       <label class="col-sm-2 control-label">Name</label>
                        <div class="col-sm-10 col-md-9">
-                         <input data-class='.live-name' type="text" name="name" class="form-control live" autocomplete="off" required='required' placeholder="Item name">
+                         <input data-class='.live-name' type="text" name="name" class="form-control live" autocomplete="off"  placeholder="Item name" required>
                        </div>
                     </div>
                     <!-- Description filed -->
                       <div class="form-group row padding">
                        <label class="col-sm-2 control-label">Description</label>
                         <div class="col-sm-10 col-md-9">
-                          <input data-class='.live-desc' type="text" name="description" class="form-control live" autocomplete="off" required='required' placeholder="Description">
+                          <input data-class='.live-desc' type="text" name="description" class="form-control live" autocomplete="off" placeholder="Description" required>
                         </div>
                      </div>
                      <!-- price filed -->
                        <div class="form-group row padding">
                         <label class="col-sm-2 control-label">Price</label>
                          <div class="col-sm-10 col-md-9">
-                           <input data-class='.live-price' type="text" name="price" class="form-control live" autocomplete="off" required='required' placeholder="Price">
+                           <input data-class='.live-price' type="text" name="price" class="form-control live" autocomplete="off" placeholder="Price" required>
                          </div>
                       </div>
                       <!-- country made filed -->
                         <div class="form-group row padding">
                          <label class="col-sm-2 control-label">Country</label>
                           <div class="col-sm-10 col-md-9">
-                            <input type="text" name="country_made" class="form-control" autocomplete="off" required='required' placeholder="Item Country made">
+                            <input type="text" name="country_made" class="form-control" autocomplete="off" placeholder="Item Country made" required>
                           </div>
                        </div>
                        <div class="form-group row padding">

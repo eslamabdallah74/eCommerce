@@ -38,28 +38,59 @@ if (isset($_POST['login'])) {
    }
    // 2sec if closing tag (sigup form)
   } else {
-    $formErrors = array();
-    if (isset($_POST['username'])) {
-      $FilterdUser = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
-        if (strlen($FilterdUser) < 5 ) {
-          $formErrors[] = 'Username must be lager than four Letters';
-        }
+    echo "<div class='container'>";
+    // Get vribals from form
+    $user = $_POST['username'];
+    $pass = $_POST['password1'];
+    $ConfirmPass = $_POST['password2'];
+    $name = $_POST['fullname'];
+    $email = $_POST['email'];
+    $hashpass = sha1($_POST['password1']);
+    //validate the form
+    $formerrors = array();
+    if (empty($user)) {
+      $formerrors[] =  '<strong> Username </strong> Cant be <strong> Empty </strong>';
     }
+    if (empty($email)) {
+      $formerrors[] = ' <strong> Email </strong>  Cant be <strong> Empty ';
+    }
+    if (empty($name)) {
+      $formerrors[] = '<strong> Fullname </strong> Cant be <strong> Empty </strong> ';
+    }
+    if (empty($pass) || (empty($ConfirmPass))) {
+      $formerrors[] = '<strong> Password </strong> Cant be <strong> Empty </strong> ';
+    }
+    if ($pass != $ConfirmPass) {
+      $formerrors[] = '<strong> Password </strong> Doesnt <strong> match </strong> ';
+    }
+    //loop into errors
+     foreach($formerrors as $error){
+       echo '<div class="alert alert-danger">' . $error .  '</div>' ;
+     }
+     // if there is no errors update the form
+     if (empty($formerrors)) {
+       //check if user exists in database
+    $check = checkItem("username" , "users" , $user);
+    if ($check == 1) {
+      echo "<div class='alert alert-danger text-center'> Sorry This Username Exists </div>";
+      header("refresh:2;url=members.php?action=add");
+    } else {
 
-    if (isset($_POST['password1']) && isset($_POST['password2']) ) {
-      $pass1 = sha1($_POST['password1']);
-      $pass2 = sha1($_POST['password2']);
-      if ($pass1 !== $pass2) {
-        $formErrors[] = 'Password Is Not Matching';
-      }
-    }
-
-    if (isset($_POST['email'])) {
-      $FilterdEmail = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-        if (filter_var($FilterdEmail, FILTER_SANITIZE_EMAIL) != true ) {
-          $formErrors[] = 'Email Is Not Valid';
-        }
-    }
+      //insert user info in database
+            $stmt = $con->prepare('INSERT INTO
+                                          users(username, password , email , fullname, reg_status ,Date )
+                                          VALUES(:zuser , :zpass, :zmail, :zname , 1 ,now()) ');
+            $stmt->execute(array(
+              'zuser' => $user,
+              'zpass' => $hashpass,
+              'zmail' => $email,
+              'zname' => $name
+            ));
+             //system update message
+             $theMsg = "<div class='alert alert-light text-center'> " . $stmt->rowCount() . " account created </div>";
+             redirctHome($theMsg, 'back');
+         } // end of the else
+     }
 
   }
 // 1st if closing tag
@@ -72,17 +103,17 @@ if (isset($_POST['login'])) {
     <h1 class="text-center"> <span class="selected" data-class='login'>Login</span> | <span data-class="signup">Signup</span> </h1>
     <!-- start login form -->
     <form class="login" action=" <?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-      <input class="form-control text-center" type="text" name="username" autocomplete="on" placeholder="Username" required="required">
-      <input class="form-control text-center" type="password" name="passowrd" autocomplete="off" placeholder="Password" required="required">
+      <input class="form-control fixC text-center" type="text" name="username" autocomplete="on" placeholder="Username" required="required">
+      <input class="form-control fixC text-center" type="password" name="passowrd" autocomplete="off" placeholder="Password" required="required">
       <button name="login" type="submit" class="btn btn-primary">Login</button>
     </form>
     <!-- start signup form -->
     <form class="signup" action=" <?php echo $_SERVER['PHP_SELF'] ?>"  method="post">
-      <input class="form-control text-center" type="text" name="username" autocomplete="off" placeholder="Username" required="required">
-      <input class="form-control text-center" type="text" name="fullname" autocomplete="off" placeholder="Full Name">
-      <input class="form-control text-center" type="password" name="password1" autocomplete="off" placeholder="Password" required="required">
-      <input class="form-control text-center" type="password" name="password2" autocomplete="off" placeholder="Confirm Password" required="required">
-      <input class="form-control text-center" type="email" name="email" autocomplete="off" placeholder="Email" required="required">
+      <input class="form-control fixC text-center" type="text" name="username" autocomplete="off" placeholder="Username">
+      <input class="form-control fixC text-center" type="text" name="fullname" autocomplete="off" placeholder="Full Name">
+      <input class="form-control fixC text-center" type="password" name="password1" autocomplete="off" placeholder="Password" >
+      <input class="form-control fixC text-center" type="password" name="password2" autocomplete="off" placeholder="Confirm Password" >
+      <input class="form-control fixC text-center" type="email" name="email" autocomplete="off" placeholder="Email" >
 
       <button name="signup" type="sumbit" class="btn btn-success">signup</button>
     </form>
