@@ -249,21 +249,21 @@ h1 {
   position: absolute;
   padding: 10px;
   background-color: #0b5ed7;
-  color: white;
+  color: black;
   font-weight: bold;
   border-bottom-right-radius: 10%;
   left: -80px;
   top: 0;
-  transition: 1s ease-in-out;
--o-transition: 1s ease-in-out;
--webkit-transition: 1s ease-in-out;
--moz-transition: 1s ease-in-out;
-}
+  transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  }
 .price-tag-profile {
   position: absolute;
   padding: 10px;
   background-color: #f96f6f;
-  color: white;
+  color: black;
   font-weight: bold;
   border-bottom-right-radius: 10%;
   left: 0;
@@ -273,9 +273,11 @@ h1 {
   padding: 10px 0;
   font-weight: bold;
   font-family: "Montserrat", sans-serif;
+  color: black;
 }
 .list-group-flush > .list-group-item:last-child {
   margin-top: 10px;
+  color: black;
 }
 .comment {
   padding: 1%;

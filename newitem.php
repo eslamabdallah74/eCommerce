@@ -1,6 +1,6 @@
   <?php
   session_start();
-  $pageTitle = 'Add New Item';
+  $pageTitle = 'Create New Item';
 
   include "init.php"; // import files
   if (isset($_SESSION['user'])) {
@@ -29,7 +29,6 @@
             ));
              //system update message
              echo "<div class='container alert alert-success'>item added</div>";
-             header('location: profile.php');
     }
 
   ?>
@@ -108,7 +107,7 @@
               <div class="form-group row">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-6 padding">
-                <input onclick="window.location.href = 'index.php';" type="submit" value="Add Item"= class="btn btn-info">
+                <input type="submit" value="Add Item"= class="btn btn-info">
                 </div>
               </div>
                  </form>
