@@ -91,7 +91,7 @@ if (isset($_POST['login'])) {
     <?php
     if (!empty($formErrors)) {
       foreach ($formErrors as $error) {
-      echo "<p class='alert alert-danger'><b>" . $error . "</b></p>";
+      echo "<p class='alert alert-primary'><b>" . $error . "</b></p>";
       }
     }
      ?>

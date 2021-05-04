@@ -149,11 +149,19 @@ nav ul a:hover {
   color:#218838;
 }
 
-.login-page form {
+.login-page form  {
   max-width: 300px;
   margin: auto;
 }
-
+.form-control {
+  color:white;
+}
+input {
+  color: white;
+}
+.form-control::placeholder{
+  color:white;
+}
 .login-page input {
   margin-bottom: 30px !important;
 }
@@ -166,11 +174,14 @@ nav ul a:hover {
   background-color: #55efc4;
   color: black;
 }
+.login-button {
+  text-transform: lowercase;
+}
 .login-page .signup {
   display: none;
 }
 .the-errors {
-  color: black;
+  color: white;
 }
 /* end login page */
 /* Profile page */
@@ -225,10 +236,9 @@ h1 {
 .user-info {
   font-weight: bold;
   padding: 10px;
-  line-height: 3;
-  background-color: #2d3436b8;
   color: black;
   border-radius: 4px;
+  font-weight: bold;;
 }
 
 .user-info2 {
@@ -242,8 +252,12 @@ h1 {
   color: white;
   font-weight: bold;
   border-bottom-right-radius: 10%;
-  left: 0;
+  left: -80px;
   top: 0;
+  transition: 1s ease-in-out;
+-o-transition: 1s ease-in-out;
+-webkit-transition: 1s ease-in-out;
+-moz-transition: 1s ease-in-out;
 }
 .price-tag-profile {
   position: absolute;
@@ -265,7 +279,7 @@ h1 {
 }
 .comment {
   padding: 1%;
-  color: white;
+  color: black;
   font-weight: bold;
 }
 /* items page */

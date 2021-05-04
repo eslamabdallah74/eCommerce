@@ -29,6 +29,7 @@
                   ' . $cats['Name'] . '
                   </a></li>' ;}
          ?>
+         <?php if(isset($_SESSION['user'])) { ?>
          <li>
           <div class="btn-group">
               <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -42,6 +43,7 @@
               </div>
           </div>
          </li>
+         <?php } else { echo "<a class='btn btn-primary login-button' href='login.php'>Login / Signup </a>";} ?>
       </ul>
     </div>
   </div>
