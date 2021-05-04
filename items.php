@@ -1,6 +1,6 @@
 <?php
 session_start();
-$pageTitle = 'Show Items';
+$pageTitle = 'View Items';
 include "init.php"; // import files
 $itemid = isset($_GET['itemid']) && is_numeric($_GET['itemid']) ? intval($_GET['itemid']) : 0;
 // select all data depend  on the ID
