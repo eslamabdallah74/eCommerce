@@ -59,7 +59,7 @@ $info = $getUser->fetch();
                  echo "<span class='price-tag'>$" . $item['price'] . "</span>";
                  echo "<img src='https://cdn.iconscout.com/icon/premium/png-256-thumb/phone-setting-6-831060.png' alt ='' />";
                  echo "<div class='caption'>";
-                  echo "<h3 class='item-name';></h3>";
+                  echo "<h3 class='item-name';>" . $item['name']. "</h3>";
                   echo "<p class='item-description'>" . $item['description'] . "</p>";
                  echo "</div>";
                 echo "</div>";
