@@ -273,7 +273,6 @@ h1 {
 .items-info h4 {
   font-weight: bold;
 }
-<<<<<<< HEAD
 .comment-section {
   resize: none;
   height: 100px;
@@ -312,7 +311,6 @@ h1 {
   left: -35px;
   top: 0;
 }
-=======
 /* Main page  */
 .categories{
   margin: 50px auto;
@@ -341,4 +339,3 @@ h1 {
 .recent-items .review{
   color: #ffcc1b;
 }
->>>>>>> 34161305d1ebfeea641460ec6dec36717e0c4103
