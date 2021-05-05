@@ -73,6 +73,14 @@ h3 a {
   font-size: 20px;
   margin: 0 5px;
 }
+#hello-user {
+  background-color: black;
+  color: white;
+}
+#drop-down{
+  margin-top:0 ;
+  padding-top:0;
+}
 #profile {
   color: #fab1a0;
   margin: 0 5px;
