@@ -6,8 +6,12 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="layout/css/bootstrap.min.css">
-    <script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js"data-auto-a11y="true"></script>
     <link rel="stylesheet" href="layout/css/backend-style.css">
+  
+    
+
+
+
   </head>
   <body>
 

@@ -12,11 +12,13 @@
       $country    = filter_var($_POST['country_made'], FILTER_SANITIZE_STRING);
       $status     = filter_var($_POST['status'], FILTER_SANITIZE_NUMBER_INT);
       $Category   = filter_var($_POST['Category'], FILTER_SANITIZE_NUMBER_INT);
+      $tags       = filter_var($_POST['tags'], FILTER_SANITIZE_STRING);
+
 
       //insert user info in database
             $stmt = $con->prepare('INSERT INTO
-                                  items(name, description, price, country_made, status, add_date, member_ID ,Cate_ID)
-                                  VALUES(:zname, :zdesc, :zprice, :zcountry, :zstatus, now(), :zmember, :zcate  ) ');
+                                  items(name, description, price, country_made, status, add_date, member_ID ,Cate_ID, tags)
+                                  VALUES(:zname, :zdesc, :zprice, :zcountry, :zstatus, now(), :zmember, :zcate ,:ztags ) ');
             $stmt->execute(array(
               'zname'     => $name,
               'zdesc'     => $desc,
@@ -24,7 +26,9 @@
               'zcountry'  => $country,
               'zstatus'   => $status,
               'zcate'     => $Category,
-              'zmember'   => $_SESSION['uid']
+              'zmember'   => $_SESSION['uid'],
+              'ztags'     => $tags
+
 
             ));
              //system update message
@@ -49,34 +53,34 @@
                      <div class="form-group row padding">
                       <label class="col-sm-2 control-label">Name</label>
                        <div class="col-sm-10 col-md-9">
-                         <input data-class='.live-name' type="text" name="name" class="form-control live" autocomplete="off"  placeholder="Item name" required>
+                         <input data-class='.live-name' type="text" name="name" class="form-control live"id="IN-color" autocomplete="off"  placeholder="Item name" required>
                        </div>
                     </div>
                     <!-- Description filed -->
                       <div class="form-group row padding">
                        <label class="col-sm-2 control-label">Description</label>
                         <div class="col-sm-10 col-md-9">
-                          <input data-class='.live-desc' type="text" name="description" class="form-control live" autocomplete="off" placeholder="Description" required>
+                          <input data-class='.live-desc' type="text" name="description" class="form-control live" id="IN-color" autocomplete="off" placeholder="Item description" required>
                         </div>
                      </div>
                      <!-- price filed -->
                        <div class="form-group row padding">
                         <label class="col-sm-2 control-label">Price</label>
                          <div class="col-sm-10 col-md-9">
-                           <input data-class='.live-price' type="text" name="price" class="form-control live" autocomplete="off" placeholder="Price" required>
+                           <input data-class='.live-price' type="text" name="price" class="form-control live" id="IN-color" autocomplete="off" placeholder="Item price" required>
                          </div>
                       </div>
                       <!-- country made filed -->
                         <div class="form-group row padding">
                          <label class="col-sm-2 control-label">Country</label>
                           <div class="col-sm-10 col-md-9">
-                            <input type="text" name="country_made" class="form-control" autocomplete="off" placeholder="Item Country made" required>
+                            <input type="text" name="country_made" class="form-control" id="IN-color" autocomplete="off" placeholder="Item Country made" required>
                           </div>
                        </div>
                        <div class="form-group row padding">
                          <label class="col-sm-2 control-label">Status</label>
                          <div class="col-sm-10 col-md-9">
-                           <select name="status" class="form-select" aria-label="Default select example">
+                           <select name="status" id="IN-color" class="form-select" aria-label="Default select example">
                              <option value="0" selected>Open this to select item status</option>
                              <option value="1">New</option>
                              <option value="2">Like New</option>
@@ -89,8 +93,8 @@
                        <div class="form-group row padding">
                         <label class="col-sm-2 control-label">Category</label>
                          <div class="col-sm-10 col-md-9">
-                           <select name="Category"  class="form-select" aria-label="Default select example">
-                             <option value="0">Open this to select Category</option>
+                           <select name="Category" id="IN-color" class="form-select" aria-label="Default select example">
+                             <option value="0" >Open this to select Category</option>
                              <?php
                              $stmt2 = $con->prepare("SELECT * FROM categories");
                              $stmt2->execute();
@@ -101,8 +105,8 @@
                               ?>
                            </select>
                          </div>
-                      </div>
-
+                        </div>
+                       
                 <!-- submit filed -->
               <div class="form-group row">
                 <div class="col-sm-2"></div>
@@ -118,7 +122,7 @@
                    <span class='price-tag-profile'>$<span class="live-price">Price</span></span>
                    <img src='https://cdn.iconscout.com/icon/premium/png-256-thumb/new-product-1801175-1529389.png' alt ='' />
                    <div class='caption'>
-                     <h3 class='item-name live-name'>Item Name </h3>
+                     <h3 id="h3-itemname" class='item-name live-name'>Item Name </h3>
                      <p class='item-description live-desc'>Description</p>
                    </div>
                  </div>

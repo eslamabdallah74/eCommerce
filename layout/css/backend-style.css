@@ -272,6 +272,9 @@ h1 {
   font-family: "Montserrat", sans-serif;
   color: white;
 }
+#h3-itemname{
+  color: black;
+}
 .list-group-flush > .list-group-item:last-child {
   margin-top: 10px;
   color: black;
@@ -370,4 +373,12 @@ color: black;
 }
 .recent-items .review {
   color: #ffcc1b;
+}
+/* fix input */
+#IN-color
+{
+  color: black;
+}
+#IN-color::placeholder {
+  color: black;
 }

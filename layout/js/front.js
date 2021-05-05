@@ -28,4 +28,6 @@ $(".login-page h1 span").click(function () {
 //   $(".price-tag ").css('left' , '-80px');
 // });
 
+  
+  
 });
