@@ -12,7 +12,7 @@
     $row    = $stmt->fetchAll();
 ?>
 <div class="container categories">
-  <h2>Recent categories</h2>
+  <h2 class="index-heading">Recent categories</h2>
   <span class="line"></span>
   <div class="row">
   <?php 
@@ -38,7 +38,7 @@
   </div>
   <hr>
   <div class="recent-items">
-    <h2>Recent Items</h2>
+    <h2 class="index-heading">Recent Items</h2>
     <span class="line"></span>
     <div class="row">
     <?php 

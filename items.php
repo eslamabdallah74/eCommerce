@@ -1,6 +1,6 @@
 <?php
 session_start();
-$pageTitle = 'Show Items';
+$pageTitle = 'View Items';
 include "init.php"; // import files
 $itemid = isset($_GET['itemid']) && is_numeric($_GET['itemid']) ? intval($_GET['itemid']) : 0;
 // select all data depend  on the ID
@@ -30,16 +30,13 @@ $row = $stmt->fetch()
         <div class="col-md-3">
           <h4> <i class="fas fa-audio-description"></i> Description</h4>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-3">
           <h5> <?php echo $row['description'] ?> </h5>
         </div>
-      </div>
-
-      <div class="row">
         <div class="col-md-3">
           <h4>  <i class="fas fa-dollar-sign"></i> Price</h4>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-3">
           <h5> $<?php echo $row['price'] ?> </h5>
         </div>
       </div>
@@ -48,16 +45,13 @@ $row = $stmt->fetch()
         <div class="col-md-3">
           <h4> <i class="fas fa-globe-americas"></i> Made in</h4>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-3">
           <h5> <?php echo $row['country_made'] ?> </h5>
         </div>
-      </div>
-
-      <div class="row">
         <div class="col-md-3">
           <h4> <i class="far fa-clock"></i> Added at</h4>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-3">
           <h5> <?php echo $row['add_date'] ?> </h5>
         </div>
       </div>
@@ -66,20 +60,16 @@ $row = $stmt->fetch()
         <div class="col-md-3">
           <h4> <i class="fas fa-address-card"></i> Added by </h4>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-3">
           <h5> <a href="categories.php?pageid=<?php echo $row['cate_ID']; ?>"> <?php echo $row['username'] ?> </a></h5>
         </div>
-      </div>
-
-      <div class="row">
         <div class="col-md-3">
           <h4> <i class="fas fa-th-list"></i> Category</h4>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-3">
           <h5> <a href="categories.php?pageid=<?php echo $row['cate_ID']; ?>"> <?php echo $row['Name'] ?> </a></h5>
         </div>
       </div>
-
 
     </div>
   </div>
@@ -95,7 +85,7 @@ $row = $stmt->fetch()
         <h4>Add comment</h4>
         <form class="" action="<?php echo $_SERVER['PHP_SELF'] . '?itemid=' . $row['item_id'] ?>" method="post">
           <textarea class="comment-section" name="comment" rows="18" cols="180"></textarea>
-          <input class="btn btn-danger"type="submit" name="" value="add">
+          <input class="btn btn-primary "type="submit" name="" value="add">
         </form>
         <?php
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {

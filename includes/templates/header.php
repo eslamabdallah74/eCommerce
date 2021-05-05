@@ -6,8 +6,12 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="layout/css/bootstrap.min.css">
-    <script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js"data-auto-a11y="true"></script>
     <link rel="stylesheet" href="layout/css/backend-style.css">
+  
+    
+
+
+
   </head>
   <body>
 
@@ -29,19 +33,21 @@
                   ' . $cats['Name'] . '
                   </a></li>' ;}
          ?>
+         <?php if(isset($_SESSION['user'])) { ?>
          <li>
           <div class="btn-group">
               <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-user"></i>
               </button>
-              <div class="dropdown-menu dropdown-menu-right">
-                <button class="dropdown-item" type="button">Hello , <?php echo $_SESSION['user'] ?>. </button>
+              <div class="dropdown-menu dropdown-menu-right" id="drop-down">
+                <button id="hello-user" class="dropdown-item" type="button">Hello , <?php echo $_SESSION['user'] ?></button>
                 <button class="dropdown-item" type="button"><a href="profile.php">Profile</a></button>
                 <button class="dropdown-item" type="button"><a href="newitem.php">Add new item</a></button>
                 <button class="dropdown-item" type="button"><a href="logout.php">Logout</a></button>
               </div>
           </div>
          </li>
+         <?php } else { echo "<a class='btn btn-primary login-button' href='login.php'>Login / Signup </a>";} ?>
       </ul>
     </div>
   </div>

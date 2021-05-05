@@ -92,3 +92,34 @@ function NoStars($stars = 0){
     return '';
   }
 }
+
+
+//function to check item in data base
+function checkItem($select ,$from ,$value) {
+  global $con;
+  $statment = $con->prepare("SELECT $select FROM $from WHERE $select = ?");
+
+  $statment->execute(array($value));
+
+  $count = $statment->rowCount();
+
+  return $count;
+}
+//redirct function v2.0
+function redirctHome($theMsg ,$url = null ,$seconds = 2) {
+  if ($url === null) {
+    $url = 'index.php';
+
+  } else {
+
+    if(isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] !== '') {
+      $url = $_SERVER['HTTP_REFERER'];
+      $link = 'Previous Page';
+    } else {
+      $url = "index.php";
+    }
+  }
+  echo  $theMsg;
+  header("refresh:$seconds;url=$url");
+  exit();
+}
