@@ -83,6 +83,7 @@ $row = $stmt->fetch()
       <div class="col-md-3"></div>
       <div class="col-md-3">
         <h4>Add comment</h4>
+        <?php echo $_SESSION['user']; ?>
         <form class="" action="<?php echo $_SERVER['PHP_SELF'] . '?itemid=' . $row['item_id'] ?>" method="post">
           <textarea class="comment-section" name="comment" rows="18" cols="180"></textarea>
           <input class="btn btn-primary "type="submit" name="" value="add">
@@ -91,7 +92,7 @@ $row = $stmt->fetch()
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           $comment = filter_var($_POST['comment'], FILTER_SANITIZE_STRING);
           $itemid  = $row['item_id'];
-          $userid  = $row['userID'];
+          $userid  = $_SESSION['uid'];
           if (! empty($comment)) {
             $stmt = $con->prepare("INSERT INTO
                                     comments(comment, status ,comment_date ,item_id ,user_id)
@@ -138,7 +139,7 @@ $row = $stmt->fetch()
       <?php
       foreach ($comments as $comment ) { ?>
           <div class='col-md-3 added-comments-user'>
-            <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png" alt="">
+            <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png" alt="img">
             <div class="comment-user-name">
               <?php echo $comment['Member']; ?>
             </div>

@@ -12,13 +12,12 @@
       $country    = filter_var($_POST['country_made'], FILTER_SANITIZE_STRING);
       $status     = filter_var($_POST['status'], FILTER_SANITIZE_NUMBER_INT);
       $Category   = filter_var($_POST['Category'], FILTER_SANITIZE_NUMBER_INT);
-      $tags       = filter_var($_POST['tags'], FILTER_SANITIZE_STRING);
 
 
       //insert user info in database
             $stmt = $con->prepare('INSERT INTO
-                                  items(name, description, price, country_made, status, add_date, member_ID ,Cate_ID, tags)
-                                  VALUES(:zname, :zdesc, :zprice, :zcountry, :zstatus, now(), :zmember, :zcate ,:ztags ) ');
+                                  items(name, description, price, country_made, status, add_date, member_ID ,Cate_ID)
+                                  VALUES(:zname, :zdesc, :zprice, :zcountry, :zstatus, now(), :zmember, :zcate ) ');
             $stmt->execute(array(
               'zname'     => $name,
               'zdesc'     => $desc,
@@ -27,7 +26,6 @@
               'zstatus'   => $status,
               'zcate'     => $Category,
               'zmember'   => $_SESSION['uid'],
-              'ztags'     => $tags
 
 
             ));

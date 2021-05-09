@@ -55,11 +55,11 @@ $info = $getUser->fetch();
             if (! empty(getItems('member_ID' ,$info['userID']))) {
             foreach (getItems('member_ID' , $info['userID']) as $item) {
               echo "<div class='col-md-3'>";
-               echo "<div class='thumbnail'><a class='show-item' href='items.php?itemid=" . $item['item_id'] . "'></a>";
+               echo "<div class='thumbnail-p'><a class='show-item' href='items.php?itemid=" . $item['item_id'] . "'></a>";
                  echo "<span class='price-tag'>$" . $item['price'] . "</span>";
                  echo "<img src='https://cdn.iconscout.com/icon/premium/png-256-thumb/phone-setting-6-831060.png' alt ='' />";
                  echo "<div class='caption'>";
-                  echo "<h3 class='item-name';>" . $item['name']. "</h3>";
+                  echo "<h3 class='item-name-p';>" . $item['name']. "</h3>";
                   echo "<p class='item-description'>" . $item['description'] . "</p>";
                  echo "</div>";
                 echo "</div>";
